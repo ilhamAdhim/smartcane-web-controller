@@ -1,4 +1,4 @@
-import firebase from "firebase/app"
+import firebase from "firebase"
 import "firebase/auth"
 import "firebase/firestore"
 
@@ -9,6 +9,7 @@ const firebaseConfig = {
     storageBucket: "smartcane-iot.appspot.com",
     messagingSenderId: "749995358238",
     appId: "1:749995358238:web:b41ad8f835abdf63dd160f",
+    databaseURL: "https://smartcane-iot-default-rtdb.firebaseio.com/",
     measurementId: "G-VNZZPL2WYJ"
 };
 // Initialize Firebase

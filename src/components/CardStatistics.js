@@ -3,18 +3,21 @@ import { Statistic, Card, Row, Col, Progress } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 const CardStatistics = props => {
+    const colorStyle = {
+        color: props.proximityRisk === 'HIGH' ? '#e33307' : '#3f8600'
+    }
     return (
         <div className="site-statistic-demo-card">
             <Row gutter={16}>
                 <Col span={12}>
                     <Card>
                         <Statistic
-                            title="Active"
-                            value={11.28}
+                            title="Risk"
+                            value={props.proximityRisk}
                             precision={2}
-                            valueStyle={{ color: '#3f8600' }}
-                            prefix={<ArrowUpOutlined />}
-                            suffix="%"
+                            valueStyle={colorStyle}
+                            prefix={props.proximityRisk === 'HIGH' ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
+
                         />
                     </Card>
                 </Col>
@@ -22,7 +25,7 @@ const CardStatistics = props => {
                     <Card>
                         <Row gutter={16} justify="space-around">
                             <Col span={12}>
-                                <Statistic title="Active Users" value={112893} />
+                                <Statistic title="Distance" value={props.proximityVal} suffix="cm" />
                             </Col>
                             <Col span={12} style={{ textAlign: 'right' }}>
                                 <Progress type="circle" percent={75} width={60} />

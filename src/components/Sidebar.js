@@ -18,7 +18,7 @@ const Sidebar = () => {
         <Sider collapsible collapsed={isCollapsed} onCollapse={() => setIsCollapsed(!isCollapsed)}>
             <div className="logo" style={{ height: '4.2em', display: 'block' }}>
                 <div style={{ padding: '1em', color: 'white' }}>
-                    IOT PRoject
+                    Smartcane - IOT Project
                 </div>
             </div>
             <Menu selectable theme="dark" mode="inline" selectedKeys={[location.pathname]}>
@@ -26,7 +26,7 @@ const Sidebar = () => {
                     <Link to="/">Home</Link>
                 </Menu.Item>
                 <Menu.Item key="/HistoryLocation" icon={<DesktopOutlined />}>
-                    <Link to="/HistoryLocation">HistoryLocation</Link>
+                    <Link to="/HistoryLocation">Track Location</Link>
                 </Menu.Item>
                 <Menu.Item key="/Profile" icon={<UserOutlined />}>
                     <Link to="/Profile">Profile</Link>

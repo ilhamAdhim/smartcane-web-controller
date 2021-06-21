@@ -28,9 +28,9 @@ export default function App() {
           <Route path="/Profile">
             <Profile />
           </Route>
-          <Route path="/Login">
+          {/* <Route path="/Login">
             <Login />
-          </Route>
+          </Route> */}
           <Route component={NotFound} />
         </Switch>
       </div>

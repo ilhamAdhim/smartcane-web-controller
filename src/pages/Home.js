@@ -5,6 +5,8 @@ import CardStatistics from '../components/CardStatistics';
 import {
     UpOutlined,
 } from '@ant-design/icons';
+import { myFirebase } from '../firebase';
+import { readDataFirebase } from '../firebase/services';
 const { Header, Content, Footer } = Layout;
 
 const spinContainerStyle = {
@@ -26,8 +28,10 @@ const topButtonStyle = {
     textAlign: 'center',
     fontSize: 14,
 }
+
 const Home = () => {
     const [isDataLoaded, setIsDataLoaded] = useState(false);
+    const [proximity, setProximity] = useState({});
 
     useEffect(() => {
         document.title = 'Smartcane | Home'
@@ -35,7 +39,16 @@ const Home = () => {
         setTimeout(() => {
             setIsDataLoaded(true)
         }, 1000);
+
+        let refProximity = myFirebase.database().ref('rtProxSensor')
+        readDataFirebase(refProximity).then(response => {
+            setProximity(response)
+        })
     }, []);
+
+    useEffect(() => {
+        console.log(proximity)
+    }, [proximity]);
     return (
         <Layout style={{ minHeight: '600vh' }}>
             <BackTop >
@@ -47,7 +60,10 @@ const Home = () => {
                 <Content style={{ margin: '0 16px' }}>
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                         <div style={{ marginBottom: '2em 1em' }}> Ini home dan statistiknya </div>
-                        {isDataLoaded ? <CardStatistics /> :
+                        {isDataLoaded ? (
+                            <CardStatistics proximityVal={proximity.distance} proximityRisk={proximity.risk} />
+
+                        ) :
                             <div style={spinContainerStyle}>
                                 <Spin />
                             </div>
