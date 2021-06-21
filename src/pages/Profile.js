@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import Sidebar from '../components/Sidebar';
 
@@ -6,6 +6,9 @@ const { Header, Content, Footer } = Layout;
 
 const Profile = () => {
 
+    useEffect(() => {
+        document.title = 'Smartcane | User'
+    }, []);
     return (
         <div>
             <Layout style={{ minHeight: '100vh' }}>

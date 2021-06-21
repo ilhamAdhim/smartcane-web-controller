@@ -4,37 +4,35 @@ import {
     DesktopOutlined,
     PieChartOutlined,
     FileOutlined,
-    TeamOutlined,
     UserOutlined,
 } from '@ant-design/icons';
+import { Link, useLocation } from 'react-router-dom';
 
 const { Sider } = Layout;
-const { SubMenu } = Menu;
 
 const Sidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
-
+    const location = useLocation()
+    console.log(location.pathname)
     return (
         <Sider collapsible collapsed={isCollapsed} onCollapse={() => setIsCollapsed(!isCollapsed)}>
-            <div className="logo" />
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                <Menu.Item key="1" icon={<PieChartOutlined />}>
-                    Option 1
+            <div className="logo" style={{ height: '4.2em', display: 'block' }}>
+                <div style={{ padding: '1em', color: 'white' }}>
+                    IOT PRoject
+                </div>
+            </div>
+            <Menu selectable theme="dark" mode="inline" selectedKeys={[location.pathname]}>
+                <Menu.Item key="/" icon={<PieChartOutlined />}>
+                    <Link to="/">Home</Link>
                 </Menu.Item>
-                <Menu.Item key="2" icon={<DesktopOutlined />}>
-                    Option 2
+                <Menu.Item key="/HistoryLocation" icon={<DesktopOutlined />}>
+                    <Link to="/HistoryLocation">HistoryLocation</Link>
                 </Menu.Item>
-                <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-                    <Menu.Item key="3">Tom</Menu.Item>
-                    <Menu.Item key="4">Bill</Menu.Item>
-                    <Menu.Item key="5">Alex</Menu.Item>
-                </SubMenu>
-                <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-                    <Menu.Item key="6">Team 1</Menu.Item>
-                    <Menu.Item key="8">Team 2</Menu.Item>
-                </SubMenu>
-                <Menu.Item key="9" icon={<FileOutlined />}>
-                    Files
+                <Menu.Item key="/Profile" icon={<UserOutlined />}>
+                    <Link to="/Profile">Profile</Link>
+                </Menu.Item>
+                <Menu.Item key="/Login" icon={<FileOutlined />}>
+                    <Link to="/">Logout</Link>
                 </Menu.Item>
             </Menu>
         </Sider>
