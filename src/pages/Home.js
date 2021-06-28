@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import { myFirebase } from '../firebase';
 import { readDataFirebase } from '../firebase/services';
+import HistorySection from '../components/HistorySection';
 const { Header, Content, Footer } = Layout;
 
 const spinContainerStyle = {
@@ -50,7 +51,7 @@ const Home = () => {
         console.log(proximity)
     }, [proximity]);
     return (
-        <Layout style={{ minHeight: '600vh' }}>
+        <Layout style={{ minHeight: '100vh' }}>
             <BackTop >
                 <UpOutlined style={topButtonStyle} />
             </BackTop>
@@ -70,6 +71,7 @@ const Home = () => {
                         }
 
                     </div>
+                    <HistorySection />
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
             </Layout>

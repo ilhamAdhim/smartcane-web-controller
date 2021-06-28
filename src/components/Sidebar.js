@@ -13,7 +13,6 @@ const { Sider } = Layout;
 const Sidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const location = useLocation()
-    console.log(location.pathname)
     return (
         <Sider collapsible collapsed={isCollapsed} onCollapse={() => setIsCollapsed(!isCollapsed)}>
             <div className="logo" style={{ height: '4.2em', display: 'block' }}>

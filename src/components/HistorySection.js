@@ -17,7 +17,8 @@ const spinContainerStyle = {
     borderRadius: '4px',
 }
 
-const HistoryLocation = props => {
+
+const HistorySection = props => {
     const [latitude, setLatitude] = useState("0");
     const [longitude, setLongitude] = useState("0");
     const [historyLocation, setHistoryLocation] = useState([]);
@@ -35,7 +36,7 @@ const HistoryLocation = props => {
             setIsMapLoaded(true)
         })
 
-        let refHistory = myFirebase.database().ref(`history/2021-6-21`)
+        let refHistory = myFirebase.database().ref(`history/2021-6-22`)
         readDataFirebase(refHistory).then(response => {
             if (response !== null) {
                 let idTime = Object.keys(response)
@@ -58,43 +59,34 @@ const HistoryLocation = props => {
     useEffect(() => {
         console.log(historyLocation)
     }, [historyLocation]);
-
     return (
-        <div>
-            <Layout style={{ minHeight: '100vh' }}>
-                <Sidebar />
-                <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0 }} />
-                    <Content style={{ margin: '0 16px' }}>
-                        <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                            <Row gutter={16} align="center">
-                                <Col sm={24} md={24} lg={12}>
-                                    <Title level={2} > Maps </Title>
-                                    {isMapLoaded ? (
-                                        <>
-                                            <MapLocation latitude={latitude} longitude={longitude} />
-                                        </>
-                                    ) : (
-                                        <div style={spinContainerStyle}>
-                                            <Spin tip="Loading Map..." />
-                                        </div>
-                                    )}
-                                </Col>
-                                <Col sm={24} md={24} lg={12}>
-                                    <Title level={2} > Location Record </Title>
-                                    {isRecordLoaded ? (
-                                        <>
-                                            <TableHistoryLocation data={historyLocation} />
-                                        </>
-                                    ) : <Skeleton active paragraph={{ rows: 6 }} />}
-                                </Col>
-                            </Row>
-                        </div>
-                    </Content>
-                    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-                </Layout>
-            </Layout>
-        </div>
+        <Content style={{ margin: '0 16px' }}>
+            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+                <Row gutter={16} align="center">
+                    <Col sm={24} md={24} lg={12}>
+                        <Title level={2} > Maps </Title>
+                        {isMapLoaded ? (
+                            <>
+                                <MapLocation latitude={latitude} longitude={longitude} />
+                            </>
+                        ) : (
+                            <div style={spinContainerStyle}>
+                                <Spin tip="Loading Map..." />
+                            </div>
+                        )}
+                    </Col>
+                    <Col sm={24} md={24} lg={12}>
+                        <Title level={2} > Location Record </Title>
+                        {isRecordLoaded ? (
+                            <>
+                                <TableHistoryLocation data={historyLocation} />
+                            </>
+                        ) : <Skeleton active paragraph={{ rows: 6 }} />}
+                    </Col>
+                </Row>
+            </div>
+        </Content>
     );
 };
-export default HistoryLocation;
+
+export default HistorySection;
