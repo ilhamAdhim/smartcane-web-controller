@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const MapLocation = ({ latitude, longitude }) => {
-    console.log(latitude, longitude)
     const mapStyle = {
         overflow: 'hidden',
         background: 'none !important',
@@ -15,6 +14,7 @@ const MapLocation = ({ latitude, longitude }) => {
         height: '500px',
         width: '600px',
     }
+
 
     return (
         <div style={mapOuterStyle}>

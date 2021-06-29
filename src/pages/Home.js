@@ -56,11 +56,10 @@ const Home = () => {
                 <UpOutlined style={topButtonStyle} />
             </BackTop>
             <Sidebar />
-            <Layout className="site-layout">
+            <Layout>
                 <Header className="site-layout-background" style={{ padding: 0 }} />
                 <Content style={{ margin: '0 16px' }}>
-                    <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                        <div style={{ marginBottom: '2em 1em' }}> Ini home dan statistiknya </div>
+                    <div className="site-layout-background" style={{ padding: 24 }}>
                         {isDataLoaded ? (
                             <CardStatistics proximityVal={proximity.distance} proximityRisk={proximity.risk} />
 

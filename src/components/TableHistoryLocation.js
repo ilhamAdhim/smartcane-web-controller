@@ -15,9 +15,6 @@ const columns = [{
 ];
 
 const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-    },
     getCheckboxProps: (record) => ({
         disabled: record.name === 'Disabled User',
         // Column configuration not to be checked
@@ -25,13 +22,23 @@ const rowSelection = {
     }),
 };
 
-const TableHistoryLocation = ({ data }) => {
+
+
+const TableHistoryLocation = ({ data, ...props }) => {
     const [selectionType, setSelectionType] = useState('radio');
+
+    const updateLocation = (selectedRows) => {
+        props.changeLatitude(selectedRows[0].latitude)
+        props.changeLongitude(selectedRows[0].longitude)
+        props.updateLocation(false)
+        console.log(`selectedRowKeys: ${selectedRows[0].latitude}, longitude : ${selectedRows[0].longitude}`);
+    }
 
     return (
         <Table
             rowSelection={{
                 type: selectionType,
+                onChange: (selectedRowKeys, selectedRows) => updateLocation(selectedRows),
                 ...rowSelection,
             }}
             columns={columns}

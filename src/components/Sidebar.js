@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import {
-    DesktopOutlined,
+    LogoutOutlined,
     PieChartOutlined,
     FileOutlined,
     UserOutlined,
@@ -17,20 +17,17 @@ const Sidebar = () => {
         <Sider collapsible collapsed={isCollapsed} onCollapse={() => setIsCollapsed(!isCollapsed)}>
             <div className="logo" style={{ height: '4.2em', display: 'block' }}>
                 <div style={{ padding: '1em', color: 'white' }}>
-                    Smartcane - IOT Project
+                    Smartcane
                 </div>
             </div>
             <Menu selectable theme="dark" mode="inline" selectedKeys={[location.pathname]}>
                 <Menu.Item key="/" icon={<PieChartOutlined />}>
                     <Link to="/">Home</Link>
                 </Menu.Item>
-                <Menu.Item key="/HistoryLocation" icon={<DesktopOutlined />}>
-                    <Link to="/HistoryLocation">Track Location</Link>
-                </Menu.Item>
                 <Menu.Item key="/Profile" icon={<UserOutlined />}>
                     <Link to="/Profile">Profile</Link>
                 </Menu.Item>
-                <Menu.Item key="/Login" icon={<FileOutlined />}>
+                <Menu.Item key="/Login" icon={<LogoutOutlined />}>
                     <Link to="/">Logout</Link>
                 </Menu.Item>
             </Menu>
