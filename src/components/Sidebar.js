@@ -24,9 +24,6 @@ const Sidebar = () => {
                 <Menu.Item key="/" icon={<PieChartOutlined />}>
                     <Link to="/">Home</Link>
                 </Menu.Item>
-                <Menu.Item key="/Profile" icon={<UserOutlined />}>
-                    <Link to="/Profile">Profile</Link>
-                </Menu.Item>
                 <Menu.Item key="/Login" icon={<LogoutOutlined />}>
                     <Link to="/">Logout</Link>
                 </Menu.Item>
