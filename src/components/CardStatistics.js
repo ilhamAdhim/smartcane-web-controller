@@ -6,6 +6,7 @@ const CardStatistics = props => {
     const colorStyle = {
         color: props.proximityRisk === 'HIGH' ? '#e33307' : '#3f8600'
     }
+
     return (
         <div className="site-statistic-demo-card">
             <Row gutter={16}>
@@ -23,11 +24,7 @@ const CardStatistics = props => {
                 </Col>
                 <Col span={12}>
                     <Card>
-                        <Row gutter={16} justify="space-around">
-                            <Col span={12}>
-                                <Statistic title="Distance" value={props.proximityVal} suffix="cm" />
-                            </Col>
-                        </Row>
+                        <Statistic title="Distance" value={props.proximityVal} suffix="cm" />
                     </Card>
                 </Col>
             </Row>

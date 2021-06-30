@@ -11,7 +11,16 @@ const columns = [{
 {
     title: 'Time',
     dataIndex: 'time',
-}
+},
+{
+    title: 'Distance',
+    dataIndex: 'distance',
+},
+{
+    title: 'Risk',
+    dataIndex: 'risk',
+},
+
 ];
 
 const rowSelection = {

@@ -62,7 +62,6 @@ const Home = () => {
                     <div className="site-layout-background" style={{ padding: 24 }}>
                         {isDataLoaded ? (
                             <CardStatistics proximityVal={proximity.distance} proximityRisk={proximity.risk} />
-
                         ) :
                             <div style={spinContainerStyle}>
                                 <Spin />

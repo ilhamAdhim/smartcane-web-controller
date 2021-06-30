@@ -5,16 +5,15 @@ const MapLocation = ({ latitude, longitude }) => {
         overflow: 'hidden',
         background: 'none !important',
         height: '500px',
-        width: '600px',
+        width: '100%',
     }
 
     const mapOuterStyle = {
         position: 'relative',
         textAlign: 'right',
         height: '500px',
-        width: '600px',
+        width: '100%',
     }
-
 
     return (
         <div style={mapOuterStyle}>

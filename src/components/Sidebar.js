@@ -3,8 +3,6 @@ import { Layout, Menu } from 'antd';
 import {
     LogoutOutlined,
     PieChartOutlined,
-    FileOutlined,
-    UserOutlined,
 } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 
