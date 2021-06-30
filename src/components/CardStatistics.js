@@ -27,9 +27,6 @@ const CardStatistics = props => {
                             <Col span={12}>
                                 <Statistic title="Distance" value={props.proximityVal} suffix="cm" />
                             </Col>
-                            <Col span={12} style={{ textAlign: 'right' }}>
-                                <Progress type="circle" percent={75} width={60} />
-                            </Col>
                         </Row>
                     </Card>
                 </Col>
